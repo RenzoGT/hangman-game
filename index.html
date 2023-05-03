@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"
+    ></script>
+    <script defer src="script.js"></script>
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <div class="result-screen">
+      <div class="modal">
+        <div class="chart-container">
+          <canvas id="chart"></canvas>
+        </div>
+        <div class="aside">
+          <h1 class="state">You won!</h1>
+          <h2 id="lost-word"></h2>
+          <div class="wins">
+            <div class="total-wins">
+              <p></p>
+              <p>Total Wins</p>
+            </div>
+            <div class="win-streak">
+              <p>You won</p>
+              <p></p>
+              <p>Games in a row</p>
+            </div>
+          </div>
+          <button id="restart">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <h1>Hangman Game</h1>
+
+    <main>
+      <section class="hangman">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.com/svgjs"
+          width="450"
+          height="450"
+          x="0"
+          y="0"
+          viewBox="0 0 6.82666 6.82666"
+          style="enable-background: new 0 0 512 512"
+          xml:space="preserve"
+          class=""
+        >
+          <g>
+            <g id="Layer_x0020_1">
+              <g id="_344584864">
+                <path
+                  id="_344586424"
+                  d="m1.50261 6.02407c-.187209 0-.343358.134961-.376358.312665h1.0207c-.0331299-.177709-.189299-.312661-.37639-.312661l-.267957-.00000394z"
+                  fill="#000000"
+                  data-original="#000000"
+                  class=""
+                ></path>
+                <g>
+                  <path
+                    id="_344585872"
+                    d="m1.39165 1.11988.00002362 4.77571c.0357638-.00775197.0728819-.0118346.110937-.0118346l.267965-.00000394c.0379724 0 .0750118.00406693.110709.0117913l.00000787-4.77567h-.489642z"
+                    fill="#000000"
+                    data-original="#000000"
+                    class=""
+                  ></path>
+                  <path
+                    id="_344585752"
+                    d="m1.32149.979571h.629949 2.99533.288791l.361028-.00000394v-.323992c0-.0913465-.074311-.165646-.165539-.165646l-4.22574-.00000394c-.0913701 0-.165551.0743031-.165551.165654l.00002362.323988.281705.00000394z"
+                    fill="#000000"
+                    data-original="#000000"
+                    class=""
+                  ></path>
+                </g>
+                <path
+                  id="_344585464"
+                  d="m3.68492 1.13957-1.64364 1.6435.00001-.41083 1.23277-1.23268z"
+                  fill="#000000"
+                  data-original="#000000"
+                  class=""
+                ></path>
+                <path
+                  id="_344585152"
+                  d="m4.95074 1.11989.00001.78561h.28083l.00003-.78561z"
+                  fill="#000000"
+                  data-original="#000000"
+                  class=""
+                ></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <div class="hangman-head"></div>
+        <div class="hangman-body"></div>
+        <div class="hangman-right-arm"></div>
+        <div class="hangman-left-arm"></div>
+        <div class="hangman-right-leg"></div>
+        <div class="hangman-left-leg"></div>
+      </section>
+
+      <section class="word"></section>
+
+      <section class="letters">
+        <div class="letters-container">
+          <div class="upper-letters">
+            <p class="not-chosen">Q</p>
+            <p class="not-chosen">W</p>
+            <p class="not-chosen">E</p>
+            <p class="not-chosen">R</p>
+            <p class="not-chosen">T</p>
+            <p class="not-chosen">Y</p>
+            <p class="not-chosen">U</p>
+            <p class="not-chosen">I</p>
+            <p class="not-chosen">O</p>
+            <p class="not-chosen">P</p>
+          </div>
+          <div class="mid-letters">
+            <p class="not-chosen">A</p>
+            <p class="not-chosen">S</p>
+            <p class="not-chosen">D</p>
+            <p class="not-chosen">F</p>
+            <p class="not-chosen">G</p>
+            <p class="not-chosen">H</p>
+            <p class="not-chosen">J</p>
+            <p class="not-chosen">K</p>
+            <p class="not-chosen">L</p>
+          </div>
+          <div class="bottom-letters">
+            <p class="not-chosen">Z</p>
+            <p class="not-chosen">X</p>
+            <p class="not-chosen">C</p>
+            <p class="not-chosen">V</p>
+            <p class="not-chosen">B</p>
+            <p class="not-chosen">N</p>
+            <p class="not-chosen">M</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

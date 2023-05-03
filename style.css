@@ -1,0 +1,354 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow-x: hidden;
+}
+
+body,
+main,
+section,
+.letters-container {
+  display: flex;
+}
+
+body {
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: "Bree Serif", serif;
+  overflow-y: hidden;
+}
+
+main {
+  justify-content: space-around;
+  height: 70vh;
+  width: 100vw;
+}
+
+p {
+  display: inline;
+}
+
+.hangman {
+  position: absolute;
+  transform: translateX(-30rem);
+}
+
+.word,
+.letters {
+  width: 50%;
+}
+
+.word {
+  align-items: flex-end;
+  justify-content: center;
+  padding-left: 5rem;
+}
+
+.word p {
+  font-size: 4rem;
+  border-bottom: 0.5rem solid black;
+  margin-right: 0.5rem;
+  text-align: center;
+  transform: translateY(-2.7rem);
+  min-width: 4rem;
+}
+
+.hangman-head,
+.hangman-body,
+.hangman-right-arm,
+.hangman-left-arm,
+.hangman-right-leg,
+.hangman-left-leg {
+  display: none;
+  position: absolute;
+}
+.hangman-head {
+  border: 0.4rem solid black;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  transform: translateY(8rem) translateX(19.5rem);
+}
+
+.hangman-body {
+  background-color: black;
+  height: 3rem;
+  width: 0.4rem;
+  transform: translateY(11rem) translateX(20.8rem);
+}
+
+.hangman-right-arm,
+.hangman-left-arm,
+.hangman-right-leg,
+.hangman-left-leg {
+  background-color: black;
+  height: 2.5em;
+  width: 0.4rem;
+}
+
+.hangman-right-arm {
+  transform: translateY(11rem) translateX(21.5rem) rotate(-30deg);
+}
+
+.hangman-left-arm {
+  transform: translateY(11rem) translateX(20.1rem) rotate(30deg);
+}
+
+.hangman-right-leg {
+  transform: translateY(13.8rem) translateX(21.4rem) rotate(-30deg);
+}
+
+.hangman-left-leg {
+  transform: translateY(13.8rem) translateX(20.2rem) rotate(30deg);
+}
+
+.letters-container {
+  align-items: center;
+  background: rgb(184, 184, 184);
+  background: linear-gradient(
+    156deg,
+    rgba(184, 184, 184, 1) 0%,
+    rgba(24, 24, 24, 1) 100%
+  );
+  border-radius: 1rem;
+  flex-direction: column;
+  font-size: 3rem;
+  justify-content: center;
+  height: 70%;
+  margin: 3rem;
+  width: 50rem;
+  user-select: none;
+}
+
+.letters-container p {
+  background-color: darkgrey;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  display: inline-block;
+  width: 8%;
+}
+
+.letters-container div {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.letters-container p:hover {
+  background-color: grey;
+}
+
+.result-screen {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* display: grid; */
+  display: none;
+  height: 100vh;
+  position: absolute;
+  place-items: center;
+  width: 100vw;
+  z-index: 1;
+}
+
+.modal {
+  align-items: center;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  height: 50%;
+  width: 50%;
+}
+
+.modal .wins {
+  display: flex;
+  width: 100%;
+  font-size: 1.5rem;
+  justify-content: space-around;
+}
+
+.wins p {
+  display: block;
+  text-align: center;
+}
+
+.total-wins {
+  padding: 1rem;
+  border-right: 1px solid black;
+}
+
+.aside {
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  width: 50%;
+}
+
+.result-screen button {
+  appearance: none;
+  background-color: lightgrey;
+  border: 3px solid black;
+  border-radius: 1rem;
+  font: inherit;
+  font-size: 2rem;
+  padding: 0.3rem;
+}
+
+/* canvas {
+  height: 150px;
+} */
+
+@media screen and (max-width: 1280px) {
+  .hangman svg {
+    transform: translateX(80px);
+  }
+  .hangman-head {
+    transform: translateY(8rem) translateX(24.5rem);
+  }
+
+  .hangman-body {
+    transform: translateY(11rem) translateX(25.8rem);
+  }
+  .hangman-right-arm {
+    transform: translateY(11rem) translateX(26.5rem) rotate(-30deg);
+  }
+
+  .hangman-left-arm {
+    transform: translateY(11rem) translateX(25.1rem) rotate(30deg);
+  }
+
+  .hangman-right-leg {
+    transform: translateY(13.8rem) translateX(26.4rem) rotate(-30deg);
+  }
+
+  .hangman-left-leg {
+    transform: translateY(13.8rem) translateX(25.2rem) rotate(30deg);
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .hangman svg {
+    transform: translateX(6.875rem);
+  }
+  .hangman-head {
+    transform: translateY(8rem) translateX(26.5rem);
+  }
+
+  .hangman-body {
+    transform: translateY(11rem) translateX(27.8rem);
+  }
+  .hangman-right-arm {
+    transform: translateY(11rem) translateX(28.5rem) rotate(-30deg);
+  }
+
+  .hangman-left-arm {
+    transform: translateY(11rem) translateX(27.1rem) rotate(30deg);
+  }
+
+  .hangman-right-leg {
+    transform: translateY(13.8rem) translateX(28.4rem) rotate(-30deg);
+  }
+
+  .hangman-left-leg {
+    transform: translateY(13.8rem) translateX(27.2rem) rotate(30deg);
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 90vh;
+  }
+
+  .modal {
+    width: 80%;
+  }
+
+  .letters {
+    align-items: flex-end;
+    height: 23rem;
+    width: 40rem;
+  }
+  .letters-container {
+    margin: 1rem;
+  }
+  .word {
+    transform: translateY(16rem) translateX(-2rem);
+  }
+
+  .hangman {
+    transform: translateY(-1rem) translateX(-20rem);
+  }
+
+  svg {
+    height: 20rem;
+  }
+  .hangman-head {
+    transform: translateY(6rem) translateX(24.5rem);
+  }
+
+  .hangman-body {
+    transform: translateY(9rem) translateX(25.8rem);
+  }
+  .hangman-right-arm {
+    transform: translateY(9rem) translateX(26.5rem) rotate(-30deg);
+  }
+
+  .hangman-left-arm {
+    transform: translateY(9rem) translateX(25.1rem) rotate(30deg);
+  }
+
+  .hangman-right-leg {
+    transform: translateY(11.8rem) translateX(26.4rem) rotate(-30deg);
+  }
+
+  .hangman-left-leg {
+    transform: translateY(11.8rem) translateX(25.2rem) rotate(30deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    transform: scale(0.8);
+  }
+
+  .modal {
+    width: 90vw;
+    height: 70vh;
+  }
+}
+@media screen and (max-width: 500px) {
+  main {
+    transform: scale(0.6);
+  }
+  #chart {
+    width: 200px !important;
+    height: 100px !important;
+  }
+  .result-screen * {
+    font-size: 1rem;
+  }
+  .result-screen .aside {
+    justify-content: space-evenly;
+  }
+  .result-screen button {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  main {
+    transform: scale(0.5);
+  }
+}
